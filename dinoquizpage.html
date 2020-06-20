@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Quizes for kids</title>  
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel = "stylesheet" type = "text/css" href = "css/mainlayout.css" />
+		<link rel = "stylesheet" type = "text/css" href = "css/normalize.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="js/dino-questions-answers.js"></script>
+		
+	</head>
+	<body>
+		   
+		   
+<header>
+<div class = "width-cap">
+	<div class="sub-header">
+	        <div class="logo"><a href="Index.html"> <img class="logo-quiz" src="images/quizart-wizard-logo.png"/></a></div>
+	<nav>                        
+		<ul class="flex">
+		<li class="item-2 item"><a href="Index.html" >Home</a></li>           
+		<li class="item-4 item"><a href="mailto:marcinshwarco@gmail.com">marcinshwarco@gmail.com</a></li>
+	</nav>
+	</div>
+</div>
+</header>
+ <audio id="firstsoundclip" preload="auto">
+              <source src="sounds/correct.mp3"> </source>
+              
+ </audio>
+ <audio id="secondsoundclip" preload="auto">
+              
+              <source src="sounds/wrong.mp3"> </source>
+ </audio>
+ 
+     <div class = "width-cap-wrapper">
+	 
+	<div id="mainwrapper">
+	<div class="col1">
+	<h1>Dinosaur quiz</h1>
+	</div>
+	<div class="wrapper">
+	 
+	<div id = "col">
+ 
+<div>
+<img class="responsive_img" src="images/white.jpg">
+<img class="pic" src="images/goodluck-dino.jpg" alt="good luck" >
+</div>
+<p id="question_number"> </p>	 
+<h2>Read the clues and answer the question below.</h2>
+<h3 id="mainQuestion">Let's start</h3>
+<h3 id="secondQuestion">Let's start</h3>
+<h3 id="thirdQuestion">Let's start</h3>
+<h2 id="displayAnswer">Who am I?</h2>
+
+<div id ="button"  onclick="myFunction(event, questionIndex)">
+  <button id="opt1" class="btn-group">Button Label</button>
+  <button id="opt2" class="btn-group">Button Label</button>
+  <button id="opt3" class="btn-group">Button Label</button>
+  <button id="opt4" class="btn-group">Button Label</button>
+</div>
+<br>
+<div id="tick-boxes">
+<img id="tick" src="images/tick.jpg" alt="tick" width="70" height="70">
+<img id="cross" src="images/cross.jpg" alt="cross" width="70" height="70">
+</div>
+<div> 
+<button id="buttonNext">Next question</button>
+</div>
+	</div>
+	
+<div id="col2">	
+<div>
+<img class="responsive_img" src="images/white.jpg">
+<img class="responsive_img" src="images/congratulations.jpg" alt="good luck" ></div>	 
+<h2>You have completed the quiz.</h2>
+<h3 id="result"></h3>
+<div id="medal">
+</div>
+<img src="images/medal.png" alt="medal"  >
+</div>
+
+	<div id = "col">
+	  <br>
+	  <img class="pic" src="images/dinosaurs.jpg" alt="dinosaurs">
+	  <h2>Dino fun facts</h2>
+	  <p>Many scientists believe that there are still lots of dinosaurs that haven’t been discovered yet.</p>
+	  <p>While most people think that all dinosaurs were very big, the smallest were about the size of chickens.</p>
+	</div>
+	
+	
+</div>
+
+
+</div>
+
+  </div>
+  <footer> &copy </footer>
+  <script>
+
+
+
+//variable setup
+var questionIndex = 0;
+var col = document.getElementById('col');
+var col2 = document.getElementById('col2');
+var score = 0;
+var totQuestions = questions.lenght;
+var mainQuestion = document.getElementById('mainQuestion');
+var secondQuestion = document.getElementById('secondQuestion');
+var thirdQuestion = document.getElementById('thirdQuestion');
+var opt1 = document.getElementById('opt1');
+var opt2 = document.getElementById('opt2');
+var opt3 = document.getElementById('opt3');
+var opt4 = document.getElementById('opt4');
+var tick = document.getElementById('tick');
+var cross = document.getElementById('cross');
+var displayAnswer= document.getElementById('displayAnswer');
+var answer;
+var checker = false;
+
+//Function below is executed when one of the options is selected. 
+function myFunction(event, questionIndex) {
+var question_Number = questionIndex +1;
+document.getElementById('question_number').innerHTML = 'Question ' + question_Number +' /6';
+var qMain = questions[questionIndex][0];
+mainQuestion.textContent = qMain;
+var qSecond = questions[questionIndex][1];
+secondQuestion.textContent = qSecond;
+var qThird = questions[questionIndex][2];
+thirdQuestion.textContent = qThird;
+opt1.innerHTML = questions[questionIndex][3];
+ opt2.innerHTML = questions[questionIndex][4];
+ opt3.innerHTML = questions[questionIndex][5];
+ opt4.innerHTML = questions[questionIndex][6];
+var x = event.target;
+  if (x == opt1 || x == opt2 || x == opt3 || x == opt4){
+  checker = true;
+  answer = x.innerHTML;
+  displayAnswer.innerHTML = 'Who am I? ' + x.innerHTML;
+  }
+  
+  
+  if (answer == x.innerHTML && answer == questions[questionIndex][7]) {var audio = $("#firstsoundclip")[0];
+      audio.play();  tick.style.visibility="visible"; cross.style.visibility="hidden";} else if (answer == x.innerHTML && answer!== questions[questionIndex][7]){var audio = $("#secondsoundclip")[0];
+      audio.play();  cross.style.visibility="visible"; tick.style.visibility="hidden";}
+  }
+  
+  //Function below is executed when "next question" button is clicked.
+var buttonNext =document.getElementById('buttonNext').addEventListener('click', function nextQuestion(){
+    tick.style.visibility="hidden";
+	cross.style.visibility="hidden";
+    displayAnswer.innerHTML = 'Who am I? ';
+   if(checker == false) {alert('Please select your answer'); return;}
+  if (answer == questions[questionIndex][7]) {score+=1; questionIndex++;}
+     else {questionIndex++;}
+  if (questionIndex == questions.length -1) {
+    document.getElementById('buttonNext').innerHTML ="Finish";}
+if (questionIndex == questions.length) {col.style.display ='none'; col2.style.display ='block'; document.getElementById('result').innerHTML = 'You answered: ' + score + ' out of ' +questionIndex + ' question(s) correctly.';}
+	checker = false;
+myFunction(event, questionIndex);
+
+});
+myFunction(event, questionIndex);
+
+
+ </script>
+	</body>
+</html>

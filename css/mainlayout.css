@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Varela+Round&display=swap');
+
+body { 
+margin: 0 0 0 0;
+background-color: #ebf0f0;
+}
+
+header, footer {background-color: #14656d;}
+.sub-header, .wrapper, {max-width: 90%; margin:0 auto;}
+#h1-wrapper {max-width: 100%; margin:0 auto;}
+ nav ul li a {
+	text-align: center;
+	display: block;
+	padding: 10px 15px;
+}
+
+footer {color: white;
+        padding:30px;
+	   text-align:center;}
+.logo {
+text-align: center;
+	display: block;
+	padding: 5px 5px;}
+.logo-quiz {width: 260px; height: auto;}
+.pic {width: 100%;}
+.width-cap, .width-cap-wrapper {max-width: 1447px;margin:0 auto; }
+.width-cap-wrapper {background-color:#ebf0f0; min-height: calc(100vh - 80px - 83.53px);}
+#col, #col2 {
+margin: 15px 10px 10px 10px;
+padding: 0px 15px 15px 15px;
+border-color: #57b5c0;
+border-style: solid;
+border-width: 0px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+border-radius: 5px;
+line-height: 1.6;
+background-color: white;
+ 
+}
+#col2 {display:none; text-align: center;}
+.btn-group {width:90%;
+display:inline-block;
+padding:0.35em 1.2em;
+
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+
+font-weight:300;
+color:#ffffff;
+text-align:center;
+transition: all 0.2s;
+}
+.col1 {background-color: white; margin: 5px 5px 5px 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);}
+
+#opt1 {background-color: #BAAA18;border:0.1em solid    #BAAA18; }
+#opt2 {background-color: #BA4534;border:0.1em solid #BA4534; }
+#opt3 {background-color: #0FACBA;border:0.1em solid #0FACBA; }
+#opt4 {background-color: #11856E;border:0.1em solid #11856E; }
+#medal {text-align: center;}
+.btn-group:hover {
+color:#FFFFFF;
+background-color:#14656d;}
+.button-green {color:#14656d; border:0.1em solid #14656d;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+display:inline-block;
+padding:0.35em 1.2em;
+}
+.button-green:hover {color:#FFFFFF;
+background-color:#14656d;}
+
+
+#button {
+width: 100%; text-align: center;
+ }
+#tick-boxes {text-align:center;}
+#tick {visibility: hidden;}
+#cross {visibility: hidden;}
+
+#header-two-underline {
+color: #0F4E54;
+border-bottom: 1px solid #33949f;
+}
+#mainQuestion, #secondQuestion, #thirdQuestion {margin: 0 0 0 0;}
+#congratulations {text-align: center; }
+.float_img {float: left; width: 15%; height: auto;}
+.responsive_img {width: 90%; height: auto;}
+
+
+@media (min-width: 769px) {
+.sub-header, .wrapper {max-width: 80%; margin:0 auto;}
+.sub-header, nav, .flex, .wrapper {display: flex;}
+.sub-header {flex-direction: column; align-items: center;}
+.col {flex: 1 500px;}
+.wrapper {flex-direction: row; flex-wrap: wrap; }
+.logo-quiz {width: 290px; height: auto;}
+.col1 {max-width: 79%; margin: 0 auto;}
+.btn-group {width:35%;}
+}
+
+@media (min-width: 1025px) {
+.sub-header {flex-direction: row; justify-content: space-between;}
+#col, #col2 {flex: 1 300px;}
+
+}
+
