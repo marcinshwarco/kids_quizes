@@ -100,7 +100,7 @@
 var imageArray =["quiztime.png", "tester.jpg"];
 
 //variable setup
-var questionIndex = 0;
+var questionIndex = 0; // var questionIndex is used to track question number and to select items from questions array
 var col = document.getElementById('col');
 var col2 = document.getElementById('col2');
 var score = 0;
@@ -115,14 +115,15 @@ var opt4 = document.getElementById('opt4');
 var tick = document.getElementById('tick');
 var cross = document.getElementById('cross');
 var displayAnswer= document.getElementById('displayAnswer');
-var answer;
-var checker = false;
+var answer; // var answer is used to store the value of selected answer
+var checker = false; // checker is used to check if the answer is selected
+	  
 //Function below is executed when one of the options is selected. 
 
 function myFunction(event, questionIndex) {
-var question_Number = questionIndex +1;
-document.getElementById('question_number').innerHTML = 'Question ' + question_Number +' /6';
-var qMain = questions[questionIndex][0];
+var question_Number = questionIndex +1; // var question_Number is used to set the current question number
+document.getElementById('question_number').innerHTML = 'Question ' + question_Number +' /6'; //Displays current question number to the user
+var qMain = questions[questionIndex][0]; // in lines 126 to 135 (below), the the clues/quesions and answer options from questions array are displayed for the website
 mainQuestion.textContent = qMain;
 var qSecond = questions[questionIndex][1];
 secondQuestion.textContent = qSecond;
@@ -134,15 +135,15 @@ opt1.innerHTML = questions[questionIndex][3];
  opt4.innerHTML = questions[questionIndex][6];
 var x = event.target;
   if (x == opt1 || x == opt2 || x == opt3 || x == opt4){
-  checker = true;
-  answer = x.innerHTML;
-  displayAnswer.innerHTML = 'What am I? ' + x.innerHTML;
+  checker = true; // if answer is selected - checker value changes to true
+  answer = x.innerHTML; // if answer is selected - var answer takes the value of button's innerHTML
+  displayAnswer.innerHTML = 'What am I? ' + x.innerHTML; // selected answer is displayed on the website to the user
   }
   
   
   if ( answer == x.innerHTML && answer == questions[questionIndex][7]) {var audio = $("#firstsoundclip")[0];
       audio.play();  tick.style.visibility="visible"; cross.style.visibility="hidden";} else if (answer == x.innerHTML && answer!== questions[questionIndex][7]){var audio = $("#secondsoundclip")[0];
-      audio.play();  cross.style.visibility="visible"; tick.style.visibility="hidden";}
+      audio.play();  cross.style.visibility="visible"; tick.style.visibility="hidden";} // the 'if else' statement is used to play a sound when the answer is selected - one sound for correct answer and second sound for incorrect answer
   }
   
   //Function below is executed when "next question" button is clicked.
